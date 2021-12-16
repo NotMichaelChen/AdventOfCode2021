@@ -4,6 +4,7 @@ import scala.io.Source
 
 object DayN extends App {
   type Input = List[String]
+
   def parseInput(): Input = {
     Source
       .fromResource("dayN/input.txt")

@@ -35,6 +35,16 @@ case class Matrix[A](matrix: Vector[Vector[A]]) {
     } yield columnValue
   }
 
+  // TODO: copy-pasted from earlier solution, should simplify
+  def cardinalAdjacentIndices(point: Point): Vector[Point] = {
+    val (row, column) = point.tuple
+
+    val rows = Vector(row, row, row - 1, row + 1)
+    val columns = Vector(column - 1, column + 1, column, column)
+
+    rows.zip(columns).map(Point.apply).filter(p => getOpt(p).isDefined)
+  }
+
   def adjacentIndices(point: Point): Vector[Point] = {
     val (row, column) = point.tuple
 
